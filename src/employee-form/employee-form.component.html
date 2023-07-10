@@ -1,0 +1,15 @@
+<form [formGroup]="empForm" (ngSubmit)="onSubmit()">
+  <label for="emp-name">Name: </label>
+  <input id="emp-name" type="text" formControlName="empName" />
+  <br />
+
+  <label for="dept-name">Department Name: </label>
+  <input id="dept-name" type="text" formControlName="dName" />
+
+  <br />
+  <button type="submit">Submit</button>
+</form>
+
+<hr />
+
+<p>Form Value: {{ empForm.value | json }}</p>

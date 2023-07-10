@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { EmployeeService } from '../employee.service';
 
 @Component({
@@ -7,19 +7,14 @@ import { EmployeeService } from '../employee.service';
   styleUrls: ['./employee-list.component.css'],
 })
 export class EmployeeListComponent implements OnInit {
-  employees: any;
-  constructor(private employeeService: EmployeeService) {}
+  @Input() employees: any;
+  @Output() clickedEmployee = new EventEmitter<any>();
+  constructor() {}
 
-  ngOnInit() {
-    this.getEmployeeList();
-  }
+  ngOnInit() {}
 
-  getEmployeeList() {
-    this.employeeService.getEmployees().subscribe((response) => {
-      this.employees = response;
-    });
-  }
   onEdit(emp: any) {
     console.log('employee:', emp);
+    this.clickedEmployee.emit(emp);
   }
 }

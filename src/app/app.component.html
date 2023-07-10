@@ -1,1 +1,5 @@
-<app-employee-list></app-employee-list>
+<app-employee-form [selectedEmployee]="selectedEmployee"></app-employee-form>
+<app-employee-list
+  [employees]="employees"
+  (clickedEmployee)="onEditCLicked($event)"
+></app-employee-list>
