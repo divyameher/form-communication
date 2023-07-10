@@ -1,0 +1,11 @@
+<table>
+  <tr>
+    <th>EmpName</th>
+    <th>DeptName</th>
+  </tr>
+  <tr *ngFor="let emp of employees">
+    <td>{{ emp.name }}</td>
+    <td>{{ emp.departmentName }}</td>
+    <td><button (click)="onEdit(emp)">Edit</button></td>
+  </tr>
+</table>
